@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  partner_id: 1
+  avalible_in_store: false
+  partner_item_id: MyString
+  title: MyString
+
+two:
+  partner_id: 1
+  avalible_in_store: false
+  partner_item_id: MyString
+  title: MyString
