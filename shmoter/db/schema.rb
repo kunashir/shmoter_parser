@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20131031073214) do
     t.datetime "updated_at"
   end
 
+  add_index "items", ["partner_id", "partner_item_id"], name: "index_items_on_partner_id_and_partner_item_id", unique: true
+
   create_table "partners", force: true do |t|
     t.string   "xml_url"
     t.string   "xml_type"

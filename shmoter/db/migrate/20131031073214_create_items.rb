@@ -8,5 +8,7 @@ class CreateItems < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :items, ["partner_id", "partner_item_id"], unique: true
   end
 end

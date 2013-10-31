@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+	<items>
+		<item available=”true” id=”123”>
+			<title>Рубашка</title>
+		</item>
+		<item available=”true” id=”124”>
+			<title>Рубашка2</title>
+		</item>
+		<item available=”true” id=”125”>
+			<title>Рубашка</title>
+		</item>
+	</items>
+
+</xml>
