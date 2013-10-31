@@ -52,9 +52,9 @@ class YandexMarketXml < XmlParser
           end
         end
       end
-      doc_hash[table_part.name] = array_of_table_part
+     
     end
-    return doc_hash
+   
   end
 end
 
