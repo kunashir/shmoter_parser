@@ -59,22 +59,31 @@ class YandexMarketXml < XmlParser
             items_from_file[item_id]<<ch.text 
           end
         end
-      #end
-      #end
-      #array_of_table_part = Array.new
-      # items.children.each do |item|
-        
-      #   attrs = str.attributes.to_h # id and available
-      #   if attrs["available"].to_b #Item is available
-      #     db_item = Item.find_by( partner_item_id: attrs["id"]) || Item.new 
-      #     item.children.each do |item_attr|
-      #       db_item[item_attr.name] = item_attr.value
-      #     end
-      #   end
-      #end
-     
+           
     end
-    puts items_from_file 
+    #divide for three array: new item, update and available
+    items_id_in_db = Item.partner_item.pluck(:partner_item_id)
+    items_id_in_file = items_from_file.keys
+    no_in_file = items_id_in_db - items_id_in_file #array of id to set unavailable
+    new_items = items_id_in_file - items_id_in_db  #array of id no in DB - for insert!!!
+    old_item_for_update = items_id_in_file - new_items #array of id in db for update
+    #prepare 3 hash
+    update_and_available = []
+    #no_available = {}
+    items_to_insert []
+    items_from_file.each do |key, value|
+      if (new_items.include?(key))
+        items_to_insert.add(value)
+      elsif old_item_for_update.include?(key)
+        update_and_available.add(value)
+      end
+    end
+
+    Item.set_unavailable(partner, no_in_file)
+    Item.add_new_items(partner, items_to_insert)
+    Item.update_items(partner, update_and_available)
+        
+
   end
 end
 
