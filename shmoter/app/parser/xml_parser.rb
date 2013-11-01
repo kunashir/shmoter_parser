@@ -56,7 +56,7 @@ class YandexMarketXml < XmlParser
       #other attributes adding in sub item of xml, example: <lable> T-Shirt</lable> NO ATTRIBUTES!!!
         item.children.each do |ch| 
           if ch.name == "label" 
-            items_from_file[item_id]<<ch.text 
+            items_from_file[item_id] << ch.text 
           end
         end
            
